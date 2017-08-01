@@ -4,10 +4,6 @@ import io.sixhours.env.Environment
 import org.yaml.snakeyaml.Yaml
 import org.yaml.snakeyaml.constructor.Constructor
 
-import java.io.InputStream
-import java.util.stream.Collectors
-import java.util.stream.StreamSupport
-
 /**
  * Holds a configuration loaded from the `application.yml` file on the classpath.
 
@@ -15,22 +11,18 @@ import java.util.stream.StreamSupport
  */
 object ConfigurationHolder {
     private val yaml = Yaml(Constructor(Configuration::class.java))
-    private var configuration: Map<Environment, Configuration> = mapOf()
+    private val configuration: Map<Environment, Configuration> by lazy { load() }
 
-    init {
-        load()
-    }
-
-    private fun load() {
+    private fun load(): Map<Environment, Configuration> {
         val inputStream = ConfigurationHolder::class.java.getResourceAsStream("/application.yml")
         val iterable = yaml.loadAll(inputStream)
 
-        configuration = iterable.asSequence()
+        return iterable.asSequence()
                 .map { it as Configuration }
                 .associateBy { it.environment }
     }
 
     fun configuration(): Configuration? {
-        return this.configuration[Environment.value()]
+        return configuration[Environment.value()]
     }
 }

@@ -14,7 +14,7 @@ import org.junit.rules.ExpectedException
 class EnvironmentTest {
 
     @get:Rule
-    val thrown = ExpectedException.none()
+    val thrown: ExpectedException = ExpectedException.none()
 
     @Test fun thatResolvingEnvironmentFromEnvironmentVariableReturnsTestEnvironment() {
         System.setProperty("LAMBDA_ENVIRONMENT", "test")
