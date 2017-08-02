@@ -10,16 +10,12 @@ import java.util.Optional
 enum class Environment {
     test, dev, stage, prod;
 
-    /**
-     * Returns [Environment] enum constant resolved from the lambda environment variable.
-
-     * @return Environment
-     * *
-     * @throws IllegalArgumentException If the enum type has no constant matching the specified environment variable.
-     */
     companion object {
         private val LAMBDA_ENVIRONMENT = "LAMBDA_ENVIRONMENT"
 
+        /**
+         * Returns [Environment] enum constant resolved from the lambda environment variable.
+         */
         fun value(): Environment {
             val env = Optional.ofNullable(System.getenv(LAMBDA_ENVIRONMENT))
                     .orElse(System.getProperty(LAMBDA_ENVIRONMENT))
