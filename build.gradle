@@ -42,7 +42,7 @@ repositories {
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib"
     compile "com.amazonaws:aws-lambda-java-core:1.1.0"
     compile "org.yaml:snakeyaml:1.18"
 
