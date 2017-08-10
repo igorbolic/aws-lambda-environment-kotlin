@@ -1,7 +1,5 @@
 package io.sixhours.env
 
-import java.util.Optional
-
 /**
  * Enum constant with available lambda environments.
 
@@ -17,8 +15,7 @@ enum class Environment {
          * Returns [Environment] enum constant resolved from the lambda environment variable.
          */
         fun value(): Environment {
-            val env = Optional.ofNullable(System.getenv(LAMBDA_ENVIRONMENT))
-                    .orElse(System.getProperty(LAMBDA_ENVIRONMENT))
+            val env = System.getenv(LAMBDA_ENVIRONMENT) ?: System.getProperty(LAMBDA_ENVIRONMENT)
 
             if (env != null) {
                 return Environment.valueOf(env)

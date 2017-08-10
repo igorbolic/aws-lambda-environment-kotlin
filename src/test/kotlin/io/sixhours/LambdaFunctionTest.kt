@@ -7,7 +7,7 @@ import org.junit.Test
 
 /**
  * Lambda handler tests.
-
+ *
  * @author Igor Bolic
  */
 class LambdaFunctionTest : AbstractTest() {

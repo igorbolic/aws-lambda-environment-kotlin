@@ -4,7 +4,7 @@ import org.junit.BeforeClass
 
 /**
  * Base class for test environment configuration.
-
+ *
  * @author Igor Bolic
  */
 abstract class AbstractTest {

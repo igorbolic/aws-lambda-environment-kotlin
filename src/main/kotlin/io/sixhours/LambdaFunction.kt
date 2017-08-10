@@ -14,8 +14,5 @@ class LambdaFunction : RequestHandler<String, String> {
 
     private val service: Service = DefaultService
 
-    override fun handleRequest(input: String, context: Context): String {
-
-        return service.fullName()
-    }
+    override fun handleRequest(input: String, context: Context): String = service.fullName()
 }

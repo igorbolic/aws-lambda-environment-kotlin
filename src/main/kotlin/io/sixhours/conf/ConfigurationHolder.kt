@@ -22,7 +22,5 @@ object ConfigurationHolder {
                 .associateBy { it.environment }
     }
 
-    fun configuration(): Configuration? {
-        return configuration[Environment.value()]
-    }
+    fun configuration(): Configuration? = configuration[Environment.value()]
 }

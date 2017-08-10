@@ -8,7 +8,7 @@ import org.junit.Test
 
 /**
  * Configuration holder tests.
-
+ *
  * @author Igor Bolic
  */
 class ConfigurationHolderTest : AbstractTest() {

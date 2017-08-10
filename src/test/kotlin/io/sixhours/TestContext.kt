@@ -24,89 +24,67 @@ class TestContext : Context {
     private var functionVersion = "EXAMPLE"
     private var invokedFunctionArn = "arn:aws:lambda:us-west-2:123456789012:function:aws-lambda-jdbc-java:test"
 
-    override fun getAwsRequestId(): String {
-        return awsRequestId
-    }
+    override fun getAwsRequestId(): String = awsRequestId
 
     fun setAwsRequestId(value: String) {
         awsRequestId = value
     }
 
-    override fun getClientContext(): ClientContext? {
-        return clientContext
-    }
+    override fun getClientContext(): ClientContext? = clientContext
 
     fun setClientContext(value: ClientContext) {
         clientContext = value
     }
 
-    override fun getFunctionName(): String {
-        return functionName
-    }
+    override fun getFunctionName(): String = functionName
 
     fun setFunctionName(value: String) {
         functionName = value
     }
 
-    override fun getIdentity(): CognitoIdentity? {
-        return identity
-    }
+    override fun getIdentity(): CognitoIdentity? = identity
 
     fun setIdentity(value: CognitoIdentity) {
         identity = value
     }
 
-    override fun getLogGroupName(): String {
-        return logGroupName
-    }
+    override fun getLogGroupName(): String = logGroupName
 
     fun setLogGroupName(value: String) {
         logGroupName = value
     }
 
-    override fun getLogStreamName(): String {
-        return logStreamName
-    }
+    override fun getLogStreamName(): String = logStreamName
 
     fun setLogStreamName(value: String) {
         logStreamName = value
     }
 
-    override fun getLogger(): LambdaLogger {
-        return logger
-    }
+    override fun getLogger(): LambdaLogger = logger
 
     fun setLogger(value: LambdaLogger) {
         logger = value
     }
 
-    override fun getMemoryLimitInMB(): Int {
-        return memoryLimitInMB
-    }
+    override fun getMemoryLimitInMB(): Int = memoryLimitInMB
 
     fun setMemoryLimitInMB(value: Int) {
         memoryLimitInMB = value
     }
 
-    override fun getRemainingTimeInMillis(): Int {
-        return remainingTimeInMillis
-    }
+    override fun getRemainingTimeInMillis(): Int = remainingTimeInMillis
 
     fun setRemainingTimeInMillis(value: Int) {
         remainingTimeInMillis = value
     }
 
-    override fun getFunctionVersion(): String {
-        return functionVersion
-    }
+    override fun getFunctionVersion(): String = functionVersion
 
     fun setFunctionVersion(value: String) {
         functionVersion = value
     }
 
-    override fun getInvokedFunctionArn(): String {
-        return invokedFunctionArn
-    }
+    override fun getInvokedFunctionArn(): String = invokedFunctionArn
 
     fun setInvokedFunctionArn(value: String) {
         invokedFunctionArn = value
@@ -117,8 +95,6 @@ class TestContext : Context {
      */
     private class TestLambdaLogger : LambdaLogger {
 
-        override fun log(message: String) {
-            println(message)
-        }
+        override fun log(message: String) = println(message)
     }
 }

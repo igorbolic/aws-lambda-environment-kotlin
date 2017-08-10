@@ -8,7 +8,7 @@ import org.junit.rules.ExpectedException
 
 /**
  * Environment variable tests.
-
+ *
  * @author Igor Bolic
  */
 class EnvironmentTest {
