@@ -1,5 +1,5 @@
 buildscript {
-    ext.kotlin_version = '1.1.4-3'
+    ext.kotlin_version = '1.2.10'
 
     repositories {
         maven { url 'http://repo.spring.io/plugins-release' }
@@ -43,8 +43,8 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib"
-    compile "com.amazonaws:aws-lambda-java-core:1.1.0"
-    compile "org.yaml:snakeyaml:1.18"
+    compile "com.amazonaws:aws-lambda-java-core:1.2.0"
+    compile "org.yaml:snakeyaml:1.19"
 
     testCompile "junit:junit:4.12"
 }
