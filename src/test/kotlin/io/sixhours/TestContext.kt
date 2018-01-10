@@ -96,5 +96,9 @@ class TestContext : Context {
     private class TestLambdaLogger : LambdaLogger {
 
         override fun log(message: String) = println(message)
+
+        override fun log(message: ByteArray?) {
+            println(message)
+        }
     }
 }
