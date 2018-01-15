@@ -1,54 +1,51 @@
 package io.sixhours.env
 
-import org.hamcrest.CoreMatchers.`is`
-import org.junit.Assert.assertThat
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.ExpectedException
 
 /**
  * Environment variable tests.
- *
- * @author Igor Bolic
  */
 class EnvironmentTest {
 
     @get:Rule
     val thrown: ExpectedException = ExpectedException.none()
 
-    @Test fun thatResolvingEnvironmentFromEnvironmentVariableReturnsTestEnvironment() {
+    @Test fun whenEnvironmentVariableSetThenResolveToTestEnvironment() {
         System.setProperty("LAMBDA_ENVIRONMENT", "test")
 
         val environment = Environment.value()
 
-        assertThat(environment, `is`(Environment.test))
+        assertThat(environment).isEqualTo(Environment.test)
     }
 
-    @Test fun thatResolvingEnvironmentFromEnvironmentVariableReturnsDevEnvironment() {
+    @Test fun whenEnvironmentVariableSetThenResolveToDevEnvironment() {
         System.setProperty("LAMBDA_ENVIRONMENT", "dev")
 
         val environment = Environment.value()
 
-        assertThat(environment, `is`(Environment.dev))
+        assertThat(environment).isEqualTo(Environment.dev)
     }
 
-    @Test fun thatResolvingEnvironmentFromEnvironmentVariableReturnsStageEnvironment() {
+    @Test fun whenEnvironmentVariableSetThenResolveToStageEnvironment() {
         System.setProperty("LAMBDA_ENVIRONMENT", "stage")
 
         val environment = Environment.value()
 
-        assertThat(environment, `is`(Environment.stage))
+        assertThat(environment).isEqualTo(Environment.stage)
     }
 
-    @Test fun thatResolvingEnvironmentFromEnvironmentVariableReturnsProdEnvironment() {
+    @Test fun whenEnvironmentVariableSetThenResolveToProdEnvironment() {
         System.setProperty("LAMBDA_ENVIRONMENT", "prod")
 
         val environment = Environment.value()
 
-        assertThat(environment, `is`(Environment.prod))
+        assertThat(environment).isEqualTo(Environment.prod)
     }
 
-    @Test fun thatResolvingEnvironmentFromEmptyEnvironmentVariableThrowsException() {
+    @Test fun whenEnvironmentVariableEmptyThenThrowException() {
         System.setProperty("LAMBDA_ENVIRONMENT", "")
 
         thrown.expect(IllegalArgumentException::class.java)
@@ -57,7 +54,7 @@ class EnvironmentTest {
         Environment.value()
     }
 
-    @Test fun thatResolvingEnvironmentFromNullEnvironmentVariableThrowsException() {
+    @Test fun whenEnvironmentVariableNullThenThrowException() {
         System.clearProperty("LAMBDA_ENVIRONMENT")
 
         thrown.expect(IllegalArgumentException::class.java)
@@ -66,7 +63,7 @@ class EnvironmentTest {
         Environment.value()
     }
 
-    @Test fun thatResolvingEnvironmentFromIllegalEnvironmentVariableThrowsException() {
+    @Test fun whenEnvironmentVariableIllegalThenThrowException() {
         System.setProperty("LAMBDA_ENVIRONMENT", "illegal")
 
         thrown.expect(IllegalArgumentException::class.java)
