@@ -6,8 +6,6 @@ import org.yaml.snakeyaml.constructor.Constructor
 
 /**
  * Holds a configuration loaded from the `application.yml` file on the classpath.
-
- * @author Igor Bolic
  */
 object ConfigurationHolder {
     private val yaml = Yaml(Constructor(Configuration::class.java))

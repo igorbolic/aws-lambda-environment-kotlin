@@ -7,8 +7,6 @@ import io.sixhours.service.Service
 
 /**
  * AWS Lambda function.
-
- * @author Igor Bolic
  */
 class LambdaFunction : RequestHandler<String, String> {
 

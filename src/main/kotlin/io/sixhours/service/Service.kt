@@ -4,8 +4,6 @@ import io.sixhours.conf.ConfigurationHolder
 
 /**
  * Service object.
-
- * @author Igor Bolic
  */
 interface Service {
     fun fullName(): String

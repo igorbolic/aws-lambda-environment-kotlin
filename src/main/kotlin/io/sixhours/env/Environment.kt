@@ -2,8 +2,6 @@ package io.sixhours.env
 
 /**
  * Enum constant with available lambda environments.
-
- * @author Igor Bolic
  */
 enum class Environment {
     test, dev, stage, prod;
